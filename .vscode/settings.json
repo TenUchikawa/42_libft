@@ -1,0 +1,13 @@
+{
+  "files.associations": {
+    "stdio.h": "c",
+    "stdlib.h": "c",
+    "libft.h": "c",
+    "random": "c",
+    "string.h": "c"
+  },
+  // disable copilot
+  "github.copilot.enable": {
+    "*": false
+  }
+}

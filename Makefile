@@ -6,7 +6,7 @@
 #    By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/14 03:11:58 by tuchikaw          #+#    #+#              #
-#    Updated: 2024/04/14 03:28:24 by tuchikaw         ###   ########.fr        #
+#    Updated: 2024/04/14 10:33:04 by tuchikaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ all: ${NAME}
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
 	gcc -nostartfiles -shared -o libft.so $(OBJS)
+
 
 clean:
 	${RM} ${OBJS}

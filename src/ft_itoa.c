@@ -1,31 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 08:40:46 by tuchikaw         ###   ########.fr       */
+/*   Created: 2024/04/14 07:01:20 by tuchikaw          #+#    #+#             */
+/*   Updated: 2024/04/14 09:55:25 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	*ft_strdup(const char *string)
+static size_t	get_len(int n)
 {
-	char	*ptr;
-	int		i;
+	size_t	i;
 
-	i = 0;
-	ptr = (char *)malloc(sizeof(char) * (ft_strlen(string) + 1));
-	if (!ptr)
-		return (ptr);
-	while (string[i])
-	{
-		ptr[i] = string[i];
+	i = 1;
+	while (n /= 10)
 		i++;
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	int			digits;
+	char		*res;
+	long int	num;
+
+	num = n;
+	digits = get_len(num);
+	if (n < 0)
+	{
+		digits++;
+		num *= -1;
 	}
-	ptr[i] = 0;
-	return (ptr);
+	res = (char *)malloc(sizeof(char) * (digits + 1));
+	if (!res)
+		return (NULL);
+	res[digits] = 0;
+	while (digits--)
+	{
+		res[digits] = (num % 10) + '0';
+		num = num / 10;
+	}
+	if (n < 0)
+		res[0] = '-';
+	return (res);
 }

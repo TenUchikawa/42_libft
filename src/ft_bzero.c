@@ -6,20 +6,19 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 11:14:18 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/01 11:19:22 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:43:51 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../libft.h"
 
 void	ft_bzero(void *b, size_t len)
 {
-	int i;
+	int				i;
+	unsigned char	*ptr;
+
 	i = 0;
-
-	unsigned char *ptr;
 	ptr = b;
-
 	while (i < (int)len)
 	{
 		ptr[i] = 0;

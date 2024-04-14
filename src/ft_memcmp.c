@@ -6,11 +6,11 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 04:51:44 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:45:05 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "../libft.h"
 
 int	ft_memcmp(const void *buf1, const void *buf2, size_t n)
 {

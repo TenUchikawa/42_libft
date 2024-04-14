@@ -6,12 +6,11 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 06:34:53 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:45:22 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <string.h>
 
 char	*ft_strnstr(char *big, char *little, size_t len)
 {

@@ -6,11 +6,11 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 04:33:32 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/03/31 17:06:36 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:44:51 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../libft.h"
 
 void	*ft_memset(void *buf, int ch, size_t n)
 {

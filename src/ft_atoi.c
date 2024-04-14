@@ -6,12 +6,11 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 06:41:51 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:43:45 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <string.h>
 
 int	ft_atoi(char *str)
 {

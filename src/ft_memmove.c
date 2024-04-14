@@ -6,11 +6,11 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 04:40:34 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:45:08 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "../libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
@@ -27,10 +27,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n-- > 0)
 			d[n] = s[n];
 	else
+	{
 		while (i < n)
 		{
 			d[i] = s[i];
 			i++;
 		}
+	}
 	return (d);
 }

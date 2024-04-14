@@ -6,16 +6,17 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:51:07 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 11:16:54 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:46:11 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
 #ifndef LIBFT_H
 # define LIBFT_H
+
+// # include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
 typedef struct s_list
 {
 	void			*content;

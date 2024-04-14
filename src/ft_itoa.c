@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 07:01:20 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 09:55:25 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:48:51 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@ static size_t	get_len(int n)
 	size_t	i;
 
 	i = 1;
-	while (n /= 10)
+	n = n / 10;
+	while (n)
+	{
+		n = n / 10;
 		i++;
+	}
 	return (i);
 }
 

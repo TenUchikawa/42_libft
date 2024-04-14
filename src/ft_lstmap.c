@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 07:01:20 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 11:18:14 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:40:33 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	new = ft_lstnew((*f)(lst));
 	if (!new)
-		return (0);
+		return (NULL);
 	first = new;
 	lst = lst->next;
 	while (lst)
@@ -30,8 +30,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!new->next)
 		{
 			ft_lstclear(&first, del);
-			return (0);
-		};
+			return (NULL);
+		}
 		new = new->next;
 		lst = lst->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:51:07 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 10:28:02 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:16:54 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,8 @@ char				*ft_strchr(char *s, int c);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 char				*ft_substr(char const *s, unsigned int start, size_t size);
 char				*ft_itoa(int n);
+void				ft_lstdelone(t_list *lst, void (*del)(void *));
+t_list				*ft_lstnew(void *content);
+void				ft_lstclear(t_list **lst, void (*del)(void *));
 
 #endif

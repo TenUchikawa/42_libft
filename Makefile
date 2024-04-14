@@ -1,49 +1,73 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/14 03:11:58 by tuchikaw          #+#    #+#              #
-#    Updated: 2024/04/14 10:33:04 by tuchikaw         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+# Compiler
+CC = gcc
 
-SRCS	= ${wildcard src/*.c}
-OBJS	= ${SRCS:.c=.o}
-INS	= includes
-NAME	= libft.a
-LIB	= ar rc
-RL	= ranlib
-CC		= cc
-RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror
+# Compiler flags
+CFLAGS = -Wall -Wextra -Werror
 
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INS}
+# Source directories
+LIBC_DIR = libc
+ADDITIONAL_DIR = additional
+BONUS_DIR = bonus
 
-${NAME}: ${OBJS}
-	${LIB} ${NAME} ${OBJS}
-	${RL} ${NAME}
+# Object directory
+OBJ_DIR = objs
 
-all: ${NAME}
+# Source files
+LIBC_SRCS = $(wildcard $(LIBC_DIR)/*.c)
+ADDITIONAL_SRCS = $(wildcard $(ADDITIONAL_DIR)/*.c)
+BONUS_SRCS = $(wildcard $(BONUS_DIR)/*.c)
+
+# Object files
+LIBC_OBJS = $(patsubst $(LIBC_DIR)/%.c,$(OBJ_DIR)/%.o,$(LIBC_SRCS))
+ADDITIONAL_OBJS = $(patsubst $(ADDITIONAL_DIR)/%.c,$(OBJ_DIR)/%.o,$(ADDITIONAL_SRCS))
+BONUS_OBJS = $(patsubst $(BONUS_DIR)/%.c,$(OBJ_DIR)/%.o,$(BONUS_SRCS))
+
+# Library name
+NAME = libft.a
+SONAME = libft.so
+
+# Bonus target
+bonus: $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
+	gcc -nostartfiles -shared -o libft.so $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
+
+# Default target
+all: $(NAME)
+
+# Create the object directory if it doesn't exist
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+# Compile libc source files
+$(OBJ_DIR)/%.o: $(LIBC_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Compile additional source files
+$(OBJ_DIR)/%.o: $(ADDITIONAL_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Compile bonus source files
+$(OBJ_DIR)/%.o: $(BONUS_DIR)/%.c | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Create the library
+$(NAME): $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
 
 
+# Clean object files
 clean:
-	${RM} ${OBJS}
+	rm -rf $(OBJ_DIR)
 
+# Clean object files and library
 fclean: clean
-	${RM} ${NAME}
+	rm -f $(NAME)
 
+# Re-compile everything
 re: fclean all
 
-norm :
-	norminette -R CheckForbiddenSourceHeader *.c
-	norminette -R CheckDefine *.h
-
-.PHONY: all re clean fclean
+# Phony targets
+.PHONY: all clean fclean re

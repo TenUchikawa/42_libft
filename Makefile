@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/16 06:05:24 by tuchikaw          #+#    #+#              #
+#    Updated: 2024/04/16 06:07:28 by tuchikaw         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS			=	ft_isalpha.c \
 					ft_isdigit.c \
 					ft_isalnum.c \
@@ -33,45 +45,44 @@ SRCS			=	ft_isalpha.c \
 					ft_putendl_fd.c \
 					ft_putnbr_fd.c 
 
+
+NAME = libft.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
+
 OBJS			= $(SRCS:.c=.o)
 
-BONUS			=	ft_lstnew.c \
-					ft_lstadd_front.c \
-					ft_lstsize.c \
-					ft_lstlast.c \
-					ft_lstadd_back.c \
-					ft_lstdelone.c \
-					ft_lstclear.c \
-					ft_lstiter.c \
-					ft_lstmap.c
+BONUS_SRCS			=	ft_lstnew.c \
+						ft_lstadd_front.c \
+						ft_lstsize.c \
+						ft_lstlast.c \
+						ft_lstadd_back.c \
+						ft_lstdelone.c \
+						ft_lstclear.c \
+						ft_lstiter.c \
+						ft_lstmap.c
 
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-BONUS_OBJ		= $(BONUS:.c=.o)
+all: $(NAME)
 
-CC				= cc
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror 
+$(NAME): $(OBJS)
+	$(AR) $@ $^
 
-NAME			= libft.a
+bonus: $(OBJS) $(BONUS_OBJS)
+	$(AR) $(NAME) $^
 
-all:			$(NAME)
-
-$(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-				$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
-fclean:			clean
-				$(RM) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re:				fclean $(NAME)
+re: fclean all
 
-bonus:			$(OBJS) $(BONUS_OBJS)
-				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
-.PHONY:			all clean fclean re bonus
+.PHONY: all bonus clean fclean re

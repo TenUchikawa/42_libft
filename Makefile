@@ -2,7 +2,7 @@
 CC = gcc
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g  -Wall -Wextra -Werror
 
 # Source directories
 LIBC_DIR = libc

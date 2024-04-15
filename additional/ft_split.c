@@ -6,13 +6,13 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 07:01:20 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 08:59:09 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/16 01:50:36 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	word_count(char const *s, char c)
+int	word_count(char const *s, char splitter)
 {
 	int		count;
 	int		i;
@@ -20,14 +20,16 @@ int	word_count(char const *s, char c)
 
 	count = 0;
 	i = 0;
-	tmp = c;
+	tmp = splitter;
 	while (s[i])
 	{
-		if (s[i] == c && c != tmp)
+		if (s[i] == splitter && splitter != tmp)
 			count++;
 		tmp = s[i];
 		i++;
 	}
+	if (tmp != splitter)
+		count++;
 	return (count);
 }
 
@@ -69,3 +71,14 @@ char	**ft_split(char *s, char c)
 	res[j] = NULL;
 	return (res);
 }
+
+// int	main(void)
+// {
+// 	printf("ind");
+// 	char **res = ft_split("hello world 42 tokyo", ' ');
+
+// 	while (res)
+// 	{
+// 		printf("%s, ", *(res++));
+// 	}
+// }

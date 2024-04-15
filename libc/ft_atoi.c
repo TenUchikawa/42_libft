@@ -6,34 +6,52 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 11:43:45 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/16 05:16:43 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-int	ft_atoi(char *str)
+int	is_whitespace(char c)
 {
-	int	res;
-	int	minus;
-	int	i;
+	return (c == ' ' || c == '\n' || c == '\t' || c == '\v' || c == '\f'
+		|| c == '\r');
+}
+
+int	long_max_check(long long int before, long long int after, int minus)
+{
+	if (after > before && minus < 0)
+		return (0);
+	if (after < before && minus > 0)
+		return (-1);
+	return (1);
+}
+
+int	ft_atoi(const char *str)
+{
+	long long int	res;
+	long long int	check;
+	int				minus;
 
 	res = 0;
-	i = 0;
 	minus = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r')
-		i++;
-	while (str[i] == '-' || str[i] == '+')
+	while (*str && is_whitespace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			minus *= -1;
-		i++;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str && *str >= '0' && *str <= '9')
 	{
-		res = (res * 10) + (str[i] - '0');
-		i++;
+		check = res;
+		res = res * 10 + minus * (*str - '0');
+		if (res > check && minus < 0)
+			return (0);
+		if (res < check && minus > 0)
+			return (-1);
+		str++;
 	}
-	return (res * minus);
+	return (res);
 }

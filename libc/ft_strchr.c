@@ -6,24 +6,34 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 11:45:11 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/15 22:24:10 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	char	*str;
+	char	target;
 
-	i = 0;
-	while (s[i] != 0)
+	target = (char)c;
+	str = (char *)s;
+	while (*str != target)
 	{
-		if (s[i] == c)
-			return (&(s[i]));
-		i++;
+		if (!(*str))
+			return (NULL);
+		str++;
 	}
-	if (s[i] == c)
-		return (&(s[i]));
-	return (NULL);
+	return (str);
 }
+
+// int	main(void)
+// {
+// 	char *s = "libft-test-tokyo";
+
+// 	printf("a %d\n", 'l' + 256);
+// 	printf("\nchr %s\n", ft_strchr(s, 'l' + 256));
+// 	printf("\nchr %s\n", strchr(s, 'l' + 256));
+// 	return (0);
+// }

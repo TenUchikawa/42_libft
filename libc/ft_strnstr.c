@@ -6,19 +6,19 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 11:45:22 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/16 02:02:04 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	*ft_strnstr(char *big, char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
 	if (!(*little))
-		return (big);
+		return ((char *)big);
 	i = 0;
 	while (i < len && big[i] != '\0')
 	{

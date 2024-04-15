@@ -6,13 +6,13 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 07:01:20 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/14 08:40:52 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/16 04:33:05 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static int	is_in_set(char const c, char const *set)
+static int	is_in_set(const char c, const char *set)
 {
 	int	cur;
 
@@ -23,7 +23,7 @@ static int	is_in_set(char const c, char const *set)
 	return (0);
 }
 
-int	get_start(char *s1, char *set)
+int	get_start(const char *s1, const char *set)
 {
 	int	i;
 	int	res;
@@ -39,7 +39,7 @@ int	get_start(char *s1, char *set)
 	return (res);
 }
 
-int	get_end(char *s1, char *set)
+int	get_end(const char *s1, const char *set)
 {
 	int	i;
 	int	res;
@@ -55,7 +55,7 @@ int	get_end(char *s1, char *set)
 	return (res);
 }
 
-char	*ft_strtrim(char *s1, char *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
 	int		start;
 	int		end;
@@ -73,3 +73,8 @@ char	*ft_strtrim(char *s1, char *set)
 	ft_strlcpy(str, s1 + start, ft_strlen(s1) - start - end + 1);
 	return (str);
 }
+
+// int	main(void)
+// {
+// 	ft_strtrim("abcdba", "acb");
+// }

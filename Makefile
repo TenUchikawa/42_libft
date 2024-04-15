@@ -1,73 +1,77 @@
-# Compiler
-CC = gcc
+SRCS			=	ft_isalpha.c \
+					ft_isdigit.c \
+					ft_isalnum.c \
+					ft_isascii.c \
+					ft_isprint.c \
+					ft_strlen.c \
+					ft_memset.c \
+					ft_bzero.c \
+					ft_memcpy.c \
+					ft_memmove.c \
+					ft_strlcpy.c \
+					ft_strlcat.c \
+					ft_toupper.c \
+					ft_tolower.c \
+					ft_strchr.c \
+					ft_strrchr.c \
+					ft_strncmp.c \
+					ft_memchr.c \
+					ft_memcmp.c \
+					ft_strnstr.c \
+					ft_atoi.c \
+					ft_calloc.c \
+					ft_strdup.c \
+					ft_substr.c \
+					ft_strjoin.c \
+					ft_strtrim.c \
+					ft_split.c \
+					ft_itoa.c \
+					ft_strmapi.c \
+					ft_striteri.c \
+					ft_putchar_fd.c \
+					ft_putstr_fd.c \
+					ft_putendl_fd.c \
+					ft_putnbr_fd.c 
 
-# Compiler flags
-CFLAGS = -g  -Wall -Wextra -Werror
+OBJS			= $(SRCS:.c=.o)
 
-# Source directories
-LIBC_DIR = libc
-ADDITIONAL_DIR = additional
-BONUS_DIR = bonus
+BONUS			=	ft_lstnew.c \
+					ft_lstadd_front.c \
+					ft_lstsize.c \
+					ft_lstlast.c \
+					ft_lstadd_back.c \
+					ft_lstdelone.c \
+					ft_lstclear.c \
+					ft_lstiter.c \
+					ft_lstmap.c
 
-# Object directory
-OBJ_DIR = objs
 
-# Source files
-LIBC_SRCS = $(wildcard $(LIBC_DIR)/*.c)
-ADDITIONAL_SRCS = $(wildcard $(ADDITIONAL_DIR)/*.c)
-BONUS_SRCS = $(wildcard $(BONUS_DIR)/*.c)
+BONUS_OBJ		= $(BONUS:.c=.o)
 
-# Object files
-LIBC_OBJS = $(patsubst $(LIBC_DIR)/%.c,$(OBJ_DIR)/%.o,$(LIBC_SRCS))
-ADDITIONAL_OBJS = $(patsubst $(ADDITIONAL_DIR)/%.c,$(OBJ_DIR)/%.o,$(ADDITIONAL_SRCS))
-BONUS_OBJS = $(patsubst $(BONUS_DIR)/%.c,$(OBJ_DIR)/%.o,$(BONUS_SRCS))
+CC				= cc
+RM				= rm -f
+CFLAGS			= -Wall -Wextra -Werror 
 
-# Library name
-NAME = libft.a
-SONAME = libft.so
+NAME			= libft.a
 
-# Bonus target
-bonus: $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
+all:			$(NAME)
+
+$(NAME):		$(OBJS)
+				ar rcs $(NAME) $(OBJS)
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
-	gcc -nostartfiles -shared -o libft.so $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
-# Default target
-all: $(NAME)
-
-# Create the object directory if it doesn't exist
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
-# Compile libc source files
-$(OBJ_DIR)/%.o: $(LIBC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Compile additional source files
-$(OBJ_DIR)/%.o: $(ADDITIONAL_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Compile bonus source files
-$(OBJ_DIR)/%.o: $(BONUS_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Create the library
-$(NAME): $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(LIBC_OBJS) $(ADDITIONAL_OBJS) $(BONUS_OBJS)
-
-
-# Clean object files
 clean:
-	rm -rf $(OBJ_DIR)
+				$(RM) $(OBJS) $(BONUS_OBJS)
 
-# Clean object files and library
-fclean: clean
-	rm -f $(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-# Re-compile everything
-re: fclean all
+re:				fclean $(NAME)
 
-# Phony targets
-.PHONY: all clean fclean re
+bonus:			$(OBJS) $(BONUS_OBJS)
+				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+.PHONY:			all clean fclean re bonus

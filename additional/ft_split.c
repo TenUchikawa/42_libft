@@ -23,7 +23,7 @@ int	word_count(char const *s, char c)
 	tmp = c;
 	while (s[i])
 	{
-		if (s[i] == c && s[i] != tmp)
+		if (s[i] == c && c != tmp)
 			count++;
 		tmp = s[i];
 		i++;

@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/16 05:19:36 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/16 09:48:07 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	*ft_memchr(const void *buf, int ch, size_t n)
 {
 	size_t	i;
-	char	*b;
-	char	target;
+	unsigned char	*b;
+	unsigned char	target;
 
-	target = (char)ch;
-	b = (char *)buf;
+	target = (unsigned char)ch;
+	b = (unsigned char *)buf;
 	i = 0;
 	while (i < n)
 	{

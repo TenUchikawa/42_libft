@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 12:01:18 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/16 05:19:36 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/16 09:51:59 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (dest == NULL && src == NULL)
+	if (!dest && !src)
 		return (dest);
 	while (i < n)
 	{

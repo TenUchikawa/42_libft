@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 07:01:20 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/16 05:19:36 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/16 09:53:25 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	start = get_start(s1, set);
 	end = get_end(s1, set);
 	if (ft_strlen(s1) == (long unsigned int)start)
-		return ("");
+		return (ft_strdup(""));
 	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) - start - end + 1));
 	if (!str)
 		return (NULL);

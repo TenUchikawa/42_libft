@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/16 05:19:36 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/16 09:52:46 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,6 @@ int	is_whitespace(char c)
 {
 	return (c == ' ' || c == '\n' || c == '\t' || c == '\v' || c == '\f'
 		|| c == '\r');
-}
-
-int	long_max_check(long long int before, long long int after, int minus)
-{
-	if (after > before && minus < 0)
-		return (0);
-	if (after < before && minus > 0)
-		return (-1);
-	return (1);
 }
 
 int	ft_atoi(const char *str)

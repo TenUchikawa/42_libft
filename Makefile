@@ -6,7 +6,7 @@
 #    By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 06:05:24 by tuchikaw          #+#    #+#              #
-#    Updated: 2024/04/16 06:07:28 by tuchikaw         ###   ########.fr        #
+#    Updated: 2024/04/16 14:35:18 by tuchikaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,13 +66,17 @@ BONUS_SRCS			=	ft_lstnew.c \
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
+
+ifeq ($(MAKECMDGOALS), bonus)
+	OBJS += $(BONUS_OBJS)
+endif
+
 all: $(NAME)
+
+bonus: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
-
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

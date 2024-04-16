@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/16 09:48:07 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/16 19:25:57 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *buf, int ch, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*b;
 	unsigned char	target;
 

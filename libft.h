@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:51:07 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/16 15:11:18 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:02:22 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # include <limits.h>
-# include <stdio.h>
+// # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

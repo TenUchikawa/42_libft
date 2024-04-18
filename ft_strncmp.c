@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/16 05:19:36 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:51:23 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	unsigned char	*str1;
 	unsigned char	*str2;
 
+	if (!s1 || !s2)
+		return (0);
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;
 	i = 0;
@@ -31,3 +33,13 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return (0);
 	return (str1[i] - str2[i]);
 }
+
+// int	main(void)
+// {
+// 	// s2 null
+// 	printf("\ns1: %d\n", strncmp("abc", NULL, 3));
+// 	printf("\ns1: %d\n", ft_strncmp("abc", NULL, 3));
+// 	// s1 null
+// 	printf("\ns2: %d\n", strncmp(NULL, "abc", 3));
+// 	printf("\ns2: %d\n", ft_strncmp(NULL, "abc", 3));
+// }

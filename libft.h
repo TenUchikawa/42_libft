@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 16:51:07 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/18 13:54:11 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/08/13 05:28:25 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 // # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

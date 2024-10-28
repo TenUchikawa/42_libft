@@ -6,7 +6,7 @@
 /*   By: tuchikaw <tuchikaw@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 03:31:01 by tuchikaw          #+#    #+#             */
-/*   Updated: 2024/04/16 05:19:36 by tuchikaw         ###   ########.fr       */
+/*   Updated: 2024/10/29 02:57:34 by tuchikaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strchr(const char *s, int c)
 	char	*str;
 	char	target;
 
+	if (!s)
+		return (0);
 	target = (char)c;
 	str = (char *)s;
 	while (*str != target)
